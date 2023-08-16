@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container py-5">
+        {%if tasks %}
+        <h1 class="">Tasks</h1>
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                {%for task in tasks%}
+                    {%if not task.is_completed %}
+                        <tr>
+                            <th scope="row">{{task.id}}</th>
+                            <td>{{task.taskTitle}}</td>
+                            <td>{{task.taskDescription}}</td>
+                            <td>
+                                {%if task.is_completed %}
+                                Complete
+                                {%else%}
+                                Incomplete
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-info btn-sm">edit</a>
+                                <a href="" class="btn btn-danger btn-sm">delete</a>
+                                <a href="" class="btn btn-primary btn-sm">Complete</a>
+                            </td>
+                        </tr>
+                    {%endif%}
+              {% endfor %}
+            </tbody>
+          </table>
+          
+          {%else%}
+          <h1>No available task!</h1>
+          {%endif%}
+    </div>
+{% endblock  %}
