@@ -29,8 +29,7 @@
                                 {% endif %}
                             </td>
                             <td>
-                                <a href="" class="btn btn-info btn-sm">edit</a>
-                                <a href="" class="btn btn-danger btn-sm">delete</a>
+                                <a href="{%url 'repriotise_task' id=task.id %}" class="btn btn-danger btn-sm">Repriotise</a>
                             </td>
                         </tr>
                     {%endif%}
