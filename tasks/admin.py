@@ -1,4 +1,6 @@
 from django.contrib import admin
 from tasks.models import TaskModel
 # Register your models here.
-admin.site.register(TaskModel)
+class TaskModelAdmin(admin.ModelAdmin):
+    list_display = ('id','taskTitle','taskDescription','is_completed')
+admin.site.register(TaskModel,TaskModelAdmin)
